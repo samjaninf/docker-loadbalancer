@@ -12,6 +12,9 @@ sudo groupmod -g $USER_GID $USER_NAME
 log "Updating file permissions..."
 sudo chown -R $USER_NAME:$USER_NAME /opt/sitepilot
 
+log "Allow caddy to run on port 80 / 443..."
+sudo setcap CAP_NET_BIND_SERVICE=+eip /usr/bin/caddy
+
 log "Done!"
 
 exec "$@"
