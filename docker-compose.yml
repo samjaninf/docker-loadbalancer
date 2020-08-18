@@ -1,0 +1,10 @@
+version: "3.3"
+
+services:
+  loadbalancer-test:
+    image: sitepilot/loadbalancer:test
+    container_name: loadbalancer-test
+    restart: always
+    ports:
+      - "6080:80"
+      - "6443:443"
