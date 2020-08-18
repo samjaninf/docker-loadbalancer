@@ -6,8 +6,11 @@ log() {
 }
 
 log "Updating user ID, GID and name..."
-usermod -u $USER_ID $USER_NAME
-groupmod -g $USER_GID $USER_NAME
+sudo usermod -u $USER_ID $USER_NAME
+sudo groupmod -g $USER_GID $USER_NAME
+
+log "Updating file permissions..."
+sudo chown -R $USER_NAME:$USER_NAME /opt/sitepilot
 
 log "Done!"
 
