@@ -23,7 +23,7 @@ RUN echo "deb [trusted=yes] https://apt.fury.io/caddy/ /" \
     | sudo tee -a /etc/apt/sources.list.d/caddy-fury.list
 
 RUN install_packages caddy \
-    && setcap CAP_NET_BIND_SERVICE=+eip $(which caddy)
+    && setcap CAP_NET_BIND_SERVICE=+eip /usr/bin/caddy
 
 # ----- User ----- #
 
